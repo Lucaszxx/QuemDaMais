@@ -28,7 +28,7 @@ for ($contador = 0; $contador < $total; $contador++){
 }
 
 if (!in_array("$email", $resultado)){
-    echo "Email encontrado";
+    
 }
 
 ?>
