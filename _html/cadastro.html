@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../_css/cadastro.css" media="screen" />
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=PT+Sans+Narrow&family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
+  <title>Document</title>
+
+  <!-- SCRIPT VALIDAR CPF-->
+  <script>
+    
+  </script>
+
+  <!--SCRIPT VALIDAR EMAIL E SENHA-->
+  <script>
+    function validar() {
+      var email_cad = cadastro.email_cad.value;
+      var email_confirmacao_cad = cadastro.email_confirmacao_cad.value;
+      var senha_cad = cadastro.senha_cad.value;
+      var senha_confirmacao_cad = cadastro.senha_confirmacao_cad.value;
+
+      if (email_cad != email_confirmacao_cad) {
+        alert('Os emails são divergentes!');
+        cadastro.email_confirmacao_cad.focus();
+        return false;
+      }
+      if (senha_cad != senha_confirmacao_cad) {
+        alert('As Senhas são divergentes!');
+        cadastro.senha_confirmacao_cad.focus();
+        return false;
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div class="box">
+    <div class="links"><a class="tlink" href="#">Login</a></div>
+    <div class="links"><a class="tlink" href="#">Cadastre-se</a></div>
+    <div class="links"><a class="tlink" href="#">Leilões já iniciados</a></div>
+    <div class="links"><a class="tlink" href="#">Veículos por categoria</a></div>
+  </div>
+  <div>
+    <img id="logo" src="../_img/logoquemdamais.png" alt="">
+  </div>
+
+  <div class="box2">
+    <form name="cadastro" action="../_php/cadastro.php" method="post">
+      <ul class="itens">
+        <li class="item">
+          <h2>Nome:</h2>
+          <input class="inputs" type="text" name="nome_cad" placeholder="José Alfredo Maia" required>
+        </li>
+        <li class="item">
+          <h2>Email:</h2>
+          <input class="inputs" type="email" name="email_cad" placeholder="JoséAlfredoMaia@gmail.com" required>
+        </li>
+        <li class="item">
+          <h2>Confirme seu email:</h2>
+          <input class="inputs" type="email" name="email_confirmacao_cad" placeholder="JoséAlfredoMaia@gmail.com" required>
+        </li>
+        <li class="item">
+          <h2>Senha:</h2>
+          <input class="inputs" type="password" name="senha_cad" placeholder="*********" required>
+        </li>
+        <li class="item">
+          <h2>Confirme a sua senha:</h2>
+          <input class="inputs" type="password" name="senha_confirmacao_cad" placeholder="*********" required>
+        </li>
+      </ul>
+        <div id="barrameio">
+        </div>
+      <ul class="itens2">
+        <li class="item">
+          <h2>CPF:</h2>
+          <input type="text" class="inputs" name="cpf_cad" placeholder="00000000000" required>
+        </li>
+        <li class="item">
+          <h2>Telefone:</h2>
+          <input class="inputs" type="text" class="inputs" name="telefone_cad" placeholder="11935487624" required>
+        </li>
+        <li class="item">
+          <h2>Endereço:</h2>
+          <input type="text" class="inputs" name="endereco_cad" placeholder="Rua Alberto Conte, 259, Villa Niterói, São Paulo, Sp" required> 
+        </li>
+        <li class="item">
+          <h2>Data Nascimento:</h2>
+          <input  type="date" class="inputs" name="data_nasc" placeholder="15/08/1984" required>
+        </li>
+        <li class="item">
+          <h2 style="margin-top: -5px;" >Imagem De Perfil:</h2>
+          <input style="height: 35px; margin-top: -10px;" type="file" class="inputs" name="avatar" required>
+        </li>
+      </ul>
+      <input onclick="return validar()" id="botao" type="submit" value="CADASTRAR">
+      </form>
+  </div>
+  </div>
+
+
+  </div>
+  </div>
+  </div>
+
+
+</body>
+
+</html>
+

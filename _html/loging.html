@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../_css/login.css" media="screen" />
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=PT+Sans+Narrow&family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
+    <title>Login</title>
+
+</head>
+<body>
+  <div class="box">
+    <div class="links"><a class="tlink" href="#">Login</a></div>
+    <div class="links"><a class="tlink" href="#">Cadastre-se</a></div>
+    <div class="links"><a class="tlink" href="#">Leilões já iniciados</a></div>
+    <div class="links"><a class="tlink" href="#">Veículos por categoria</a></div>
+</div>
+<div>
+    <img id="logo" src="../_img/logoquemdamais.png" alt="">
+</div>
+    <div class="login-page">
+        <div class="form">
+          <form class="login-form" method="POST" action="../_php/login.php">
+            <input type="text" placeholder="username" name="usuario_cad"/>
+            <input type="password" placeholder="senha" name="senha_cad"/>
+            <input id="botao" type="submit" value="LOGIN">        
+            <p class="caminho-cadastro">Não registrado? <a href="../_html/cadastro.html">Criar conta</a></p>
+          </form>
+        </div>
+      </div>
+</body>
+</html>
