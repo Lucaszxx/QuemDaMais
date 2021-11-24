@@ -1,34 +1,35 @@
 <?php
-
-include_once ('../_html/loging.html');
-session_start();
-
-$email = $_POST['email_cad'];
-$senha = $_POST['senha_cad'];
+    // Chamando o arquivo do GUZZLE
 
 
-$url = "https://api-quem-da-mais.herokuapp.com/usuarios/usuarios";
+    require './vendor/autoload.php';
+    include_once ('../_html/loging.html');
+    session_start();
+try 
+{
+    $email = $_POST['email_cad'];
+    $senha = $_POST['senha_cad'];
 
-$ch = curl_init($url);
+    // Definindo o método GUZZLE para poder fazer qualquer tipo de requisição
+    $client = new GuzzleHttp\Client();
 
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-$resultado = json_decode(curl_exec($ch));
+    $resposta = $client->request(
+        'GET', // Tipo de requisião
+        'https://api-quem-da-mais.herokuapp.com/usuarios/usuario/' . $email . '/' . $senha // URI da Api
+    );
+    
+    //echo 'Resposta API : ' . $resposta->getStatusCode();
 
+    $dados = json_decode($resposta->getBody());
+    $_SESSION['id_user'] = $dados->id;
+    $_SESSION['emailUser'] = $dados->email;
+    $_SESSION['senhaUser'] = $dados->senha;
 
-//var_dump($resultado);
-
-
-foreach($resultado as $result){}
-
-$total = count((array)$resultado);
-for ($contador = 0; $contador < $total; $contador++){
-    $nomeUsuario = $resultado[$contador]->nome . "<br>";
-    echo $nomeUsuario;
+    header('location: ../_html/indexlogado.php');
 }
 
-if (!in_array("$email", $resultado)){
-    
+catch (Exception $e) {
+    echo "<script>window.alert('Usuário ou senha incorretos...')</script>";
 }
 
 ?>

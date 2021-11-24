@@ -1,37 +1,37 @@
 <?php
-error_reporting(0);
-ini_set(“display_errors”, 0 );
-require('./conexao.php');
-include('../_html/alterardados.php');
-// Recebendo dados do form
-$newnome = $_POST['newnome'];
-$newendereco = $_POST['newendereco'];
-$newtelefone = $_POST['newtelefone'];
-$senhauser = $_POST['senha_cad'];
+    include('../_html/alterardados.php');
+    require('./vendor/autoload.php');
+    use GuzzleHttp\Client;
 
-// Verificando a senha
-$stmt = $pdo->prepare("SELECT senha_cad FROM usuarios WHERE email_cad = :email_cad");
-$stmt -> bindParam(':email_cad', $email_cadr);
-$stmt->execute();
+try
+{
+    // Recebendo dados do form
+    $newnome = $_POST['newnome'];
+    $newendereco = $_POST['newendereco'];
+    $newtelefone = $_POST['newtelefone'];
+    $newsite = $_POST['newsite'];
 
-$result = $stmt->fetchAll();
+    $client = new GuzzleHttp\Client([
+        'base_uri' => 'https://api-quem-da-mais.herokuapp.com/usuarios/usuarios', [
+            'headers' => [
+                'Content-type' => 'application/json',
+                'Authorization' => 'Sei lá',
+            ],
+            'body' => json_encode([
+                'nome' => 'Lucas',
+            ])
+        ]
+    ]);
 
-foreach ($result as $value) {
-    $passCrypt = $value['senha_cad'];
+    //$response = $client->PATCH('')
+    //$body = $response->getBody();
+    //$arr_body = json_decode($body);
+    //print_r($arr_body);
+    
 }
 
-if(password_verify($senhauser, $passCrypt)){
-    $stmt = $pdo->prepare("UPDATE usuarios SET nome_cad = :newnome, telefone_cad = :newtelefone, endereco_cad = :newendereco WHERE email_cad = '$email_cadr'");
-    $stmt -> bindParam('newnome', $newnome);
-    $stmt -> bindParam('newtelefone', $newtelefone);
-    $stmt -> bindParam('newendereco', $newendereco);
+catch(Expection $e)
+{
+    echo "Algo deu errado";
+}
 
-    $stmt->execute();
-
-    echo "<script>window.alert('Dados alterados com sucesso')</script>";
-    header( "refresh:0.1;url=../_html/indexlogado.php");
-    
-
-} else 
-    echo "<script>window.alert('Ops, senha incorreta.')</script>";
-?>

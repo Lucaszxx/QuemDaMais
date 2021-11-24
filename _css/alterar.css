@@ -1,5 +1,6 @@
 body {
-    background-color: #080808ea;
+    background-color: #ffffffea;
+    /*#080808ea*/
 }
 
 /* BARRA DE NAVEGAÇÃO */
@@ -214,12 +215,12 @@ h2 {
 
 #alterarbt {
     position: absolute;
-    margin-left: -218px;
-    margin-top: -5px;
+    margin-left: 120px;
+    margin-top: 42px;
     background: #AF4A24;
     box-shadow: none;
-    height: 45px;
-    width: 160px;
+    height: 55px;
+    width: 200px;
     box-shadow: #83371b 2px 2px;
     border: solid black 1px;
     color: snow;

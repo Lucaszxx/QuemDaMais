@@ -1,15 +1,33 @@
 <?php
     include('../_php/verificaruser.php');
-    require('../_php/conexao.php');
-    // VARIAVEIS DADOS DO USUÁRIO NO BD
-    $id_usuario;
-    $nome_cad;
-    $email_cad;
-    $cpf_cad;
-    $telefone_cad;
-    $leiloes_part;
-    $leiloes_user;
-    $membrodesde;
+    require('../_php/vendor/autoload.php');
+try
+{
+    $client = new GuzzleHttp\Client();
+
+    $resposta = $client->request(
+        'GET',
+        'https://api-quem-da-mais.herokuapp.com/usuarios/usuario/' . $emailUser . '/' . $senhaUser // URI da Api'
+    );
+
+    $dados = json_decode($resposta->getBody());
+    // VARIAVEIS DADOS DO USUÁRIO
+    $nome_cadr = $dados->nome;
+    $email_cadr = $dados->email;
+    $cpf_cadr = $dados->cpf_cnpj;
+    $telefone_cadr = $dados->telefone;
+    $membrodesder = $dados->criacao_conta;
+    $data_nascimento = $dados->data_nascimento;
+    $endereco_cadr = $dados->endereco;
+    $site = $dados->link;
+    $adDestaque = $dados->destaque_produto;
+    $avatarr = $dados->path_avatar;
+    if($adDestaque == 'off') {
+        $adDestaquer = 'Não';
+    } else {
+        $adDestaquer = 'Sim';
+    }
+    
 
     // Inverter data
     function inverteData($data){
@@ -20,25 +38,13 @@
         }
     }
 
-    //QUERY RECEBENDO DADOS
-    $sql = "SELECT * FROM usuarios WHERE id = '$id'";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-
-    $result = $stmt->fetchAll();
-
-    foreach ($result as $value) {
-        $email_cadr = $value['email_cad'];
-        $nome_cadr = $value['nome_cad'];
-        $cpf_cadr = $value['cpf_cad'];
-        $telefone_cadr = $value['telefone_cad'];
-        $endereco_cadr = $value['endereco_cad'];
-        $data_cadr = $value['data_cad'];
-        $data_nasco = $value['data_nasc'];
-        $leiloes_partr = $value['leiloes_part'];
-        $leiloes_userr = $value['leiloes_usuario'];
-        }
-    $data_nascr = inverteData($data_nasco);
+    $data_nascimentor = inverteData($data_nascimento);
+}
+catch (Exception $e)
+{
+    echo "Ops, algo deu errado, por favor, faça login novamente";
+    header('refresh: 0.5; url=../_html/loging.html');
+}
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +95,7 @@
 
 <form action="../_php/alterando.php" method="post" autocomplete="off">
     <div class="divprincipal">
-        <img  class="fotouser" src="../_img/fotoperfil.jpeg" alt="">
+        <img class="fotouser" src="<?php echo $avatarr; ?>" alt="">
         <input type="file" name="fotoinput" id="inputfoto">
         <div class="box2">
             
@@ -112,7 +118,7 @@
                         <h2>Data Nascimento:</h2>
                         <input type="text" class="inputs" value="
                         <?php
-                            echo $data_nascr;    
+                               echo $data_nascimentor;
                         ?>" readonly>
                     </li>
                     <li class="item">
@@ -126,7 +132,7 @@
                         <h2>Endereço:</h2>
                         <input type="text" class="inputs" name="newendereco" placeholder="
                         <?php
-                            echo  "*" . $endereco_cadr;    
+                            echo '*' . $endereco_cadr;    
                         ?>" required> 
                     </li>
                 </ul>
@@ -137,33 +143,29 @@
                         <h2>Telefone:</h2>
                         <input type="text" class="inputs" name="newtelefone" placeholder="
                         <?php
-                            echo "*" . $telefone_cadr; 
+                            echo '*' . $telefone_cadr; 
                         ?>" required> 
                     </li>
                     <li class="item">
-                        <h2>Leilões que está participando:</h2>
-                        <input type="text" class="inputs" value="
+                        <h2>Site:</h2>
+                        <input type="text" class="inputs" name="newsite" placeholder="
                         <?php
-                            echo $leiloes_partr;    
-                        ?>" readonly>
+                            echo '*' . $site;    
+                        ?>" >
                     </li>
                     <li class="item">
-                        <h2>Seus anúncios:</h2>
+                        <h2>Anúncio em destaque:</h2>
                         <input type="text" class="inputs" value="
                         <?php
-                            echo $leiloes_userr;    
+                            echo $adDestaquer;    
                         ?>" readonly>
                     </li>
                     <li class="item">
                         <h2>Membro desde:</h2>
                         <input type="text" class="inputs" value="
                         <?php
-                            echo $data_cadr;    
+                            echo $membrodesder;    
                         ?>" readonly>
-                    </li>
-                    <li class="item">
-                        <h2>Digite sua senha para alterar:</h2>
-                        <input name="senha_cad" type="password" class="inputs">
                     </li>
                     <button type="submit" id="alterarbt" name="enviado">Alterar</button>
                 </ul>

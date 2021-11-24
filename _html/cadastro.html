@@ -77,7 +77,7 @@
         </div>
       <ul class="itens2">
         <li class="item">
-          <h2>CPF:</h2>
+          <h2>CPF/CNPJ:</h2>
           <input type="text" class="inputs" name="cpf_cad" placeholder="00000000000" required>
         </li>
         <li class="item">
@@ -93,8 +93,12 @@
           <input  type="date" class="inputs" name="data_nasc" placeholder="15/08/1984" required>
         </li>
         <li class="item">
-          <h2 style="margin-top: -5px;" >Imagem De Perfil:</h2>
-          <input style="height: 35px; margin-top: -10px;" type="file" class="inputs" name="avatar" required>
+          <h2 style="margin-top: -5px;" >Site:</h2>
+          <input style="height: 35px; margin-top: -10px;" type="text" class="inputs" name="site_cad">
+        </li>
+        <li class="item">
+          <h2 class="item">Avatar</h2>
+          <input type="file" class="inputs" name="avatar_usuario" required>
         </li>
       </ul>
       <input onclick="return validar()" id="botao" type="submit" value="CADASTRAR">
