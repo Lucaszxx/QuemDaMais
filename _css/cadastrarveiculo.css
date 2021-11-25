@@ -2,7 +2,134 @@ body {
     background-color: #000000ea;
 }
 
-/* BARRA DE NAVEGAÇÃO */
+/* BARRA DE NAVEGAÇÃO DROPDOWN*/
+#barracor {
+    position: absolute;
+    background-color: #AF4A24;
+    width: 1366px;
+    height: 60px;
+    margin-left: -8px;
+}
+
+.divmenu {
+    margin-left: 535px;
+    margin-top: -20px;
+}
+
+.menu ul li{
+	background-color: #AF4A24;
+	float: left;
+	width: 200px;
+	height: 50px;
+	display: inline-block;
+	text-align: center;
+	line-height: 40px;
+	font-size: 24px;
+	position: relative;
+    z-index: 3;
+    border-radius: 8px;
+    padding-top: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+}
+
+.menu ul li:hover{
+	background-color: #552c1e;
+    border-radius: 8px;
+}
+
+.menu ul{
+	padding: 0px;
+    border-radius: 8px;
+}
+
+.menu ul ul{
+	display: none;
+    border-radius: 8px;
+}
+
+.menu ul li:hover > ul{
+	display:block;
+    border-radius: 8px;
+}
+
+.menu ul ul ul{
+	margin-left: 201px;
+	top: 0px;
+	position: absolute;
+    border-radius: 8px;
+}
+
+.menu ul ul li:hover{
+	background-color: #221c1b;
+    border-radius: 8px;
+}
+
+.menu ul ul ul li:hover{
+	background-color: #062a66;
+    border-radius: 8px;
+}
+
+.menu a{
+	color: white;
+	text-decoration: none;
+}
+
+/* Logo da equipe */
+#logo {
+    height: 57px;
+    margin-top: 3px;
+    margin-left: 50px;
+}
+
+/* Input */
+.inputs {
+    position: absolute;
+    height: 15px;
+    margin-top: -20px;
+    width: 450px;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #AF4A24;
+    color: rgb(0, 0, 0);
+    text-align: right;
+    font-size: large;
+  }
+
+/* lista e ul */
+.itens {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: 50px;
+}
+
+.item {
+  position: relative;
+  list-style-type: none;
+  padding-top: 25px;
+  color: #fcfcfc;
+  color: black;
+}
+
+#inputcarro {
+    margin-top: 105px;
+    margin-left: 600px;
+    position: absolute;
+}
+
+#fotocarro {
+    position: absolute;
+    border: solid snow 2px;
+    width: 150px;
+    height: 130px;
+    margin-left: 578px;
+    margin-top: -40px;
+    border-radius: 10px;
+    background-color: snow;
+}
+
 
 /* Logo da equipe */
 #logo {
@@ -14,15 +141,6 @@ body {
 }
 
 
-
-#logo:hover {
-    margin-top: 20px;
-    position: absolute;
-    background-color: #AF4A24;
-    box-shadow: 0 0 15px black;
-    transform: scale(1.6);
-    border-radius: 12px;
-}
 
 /* FLEXBOX */
 .box {
@@ -50,7 +168,7 @@ body {
     border-radius: 2px;
     width: 1368px;
     margin-left: -10px;
-    margin-top: 8px;
+    margin-top: 75px;
     
 }
 
@@ -67,52 +185,10 @@ body {
     
 }
 
-#pesquisar {
-    position: absolute;
-    margin-top: -44px;
-    margin-left: 260px;
-}
-
-#pesquisarbt {
-    color: snow;
-    background-color:#dd5b2c;
-    border: none;
-    box-shadow: 0 0 5px black;
-    border-radius: 10px;
-    height: 30px;
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-#pesquisarbt:hover {
-    transform: scale(1.2);
-    background-color: #dd5b2c;
-    border-radius: 10px;
-    height: 30px;
-    box-shadow:inset 0 -4px 0 0 #a84622(0,0,0,.2);
-    font-family: 'Source Sans Pro', sans-serif;
-    
-}
-
-.fotouser {
-    width: 200px;
-    height: 190px;
-    margin-left: 555px;
-    margin-top: 5px;
-    border-radius: 10px;
-}
-
-#fotodeperfil {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    margin-left: 5px;
-    margin-top: -10px;
-    border-radius: 5px;
-}
 
 .divprincipal {
     position: absolute;
-    margin-top: 20px;
+    margin-top: 95px;
     border: solid  1px;
     width: 1320px;
     height: 800px;
@@ -175,14 +251,14 @@ h2 {
 .itens {
     position: absolute;
     margin-left: -20px;
-    margin-top: -35px;
+    margin-top: 75px;
     
 }
 
 .itens2 {
     position: absolute;
     margin-left: 750px;
-    margin-top: -35px;
+    margin-top: 75px;
 }
 
 .item {
@@ -221,7 +297,7 @@ textarea:focus, input:focus, select:focus {
     border: solid rgba(255, 255, 255, 0.178) 1px;
     width: 1px;
     height: 400px;
-    margin-top: 30px;
+    margin-top: 170px;
     margin-left: 650px;
     background-color: rgba(255, 255, 255, 0.411);
     border-radius: 5px;

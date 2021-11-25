@@ -1,5 +1,5 @@
 body {
-    background-color: #ffffffea;
+    background-color: #080808ea;
     /*#080808ea*/
 }
 
@@ -113,7 +113,7 @@ body {
 
 .divprincipal {
     position: absolute;
-    margin-top: 300px;
+    margin-top: 20px;
     border: solid  1px;
     width: 1320px;
     height: 800px;
