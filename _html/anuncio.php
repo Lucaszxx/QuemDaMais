@@ -18,6 +18,9 @@
   <div id="barracor">
     <img id="logo" src="../_img/logoquemdamais.png" alt="">
 </div>
+
+<div id="barrasepara">
+    </div>
 <div class="divmenu">
 <nav class="menu">
 			<ul>
@@ -45,7 +48,9 @@
   <div class="fotoAnuncio">
     <ul>
       <li>
-      <img class="fotoCarro" src="../_img/carro1.jpg" alt="">
+      <img class="fotoCarro" src="../_img/foto1fit.jpg" alt="">
+      <img class="fotoCarro2" src="../_img/foto2fit.jpg" alt="">
+      <img class="fotoCarro3" src="../_img/foto3fit.jpg" alt="">
       </li>
     </ul>
   </div>
@@ -81,14 +86,28 @@
           </div>
       </div>
       <div class="informacoesCarro2">
-        <h1>Lances</h1>
-        <li class="dadoAnuncio">Valor Atual : R$110.000</li>
-        <li class='dadoAnuncio'>Valor Inicial: <br>R$50.000</li>
-        <li class="dadoAnuncio">Expira em: <br>07/12/2021</li>
-        <li class="dadoAnuncio">Dar lance:</li>
-        <input class="inputLance" type="text">
-        <button type="submit">Dar lance</button>
+        <h2 class="carroNome2">Lances</h2>
+          <div class="boxInformacoes2">
+            <li class="dadoAnuncio">
+              <h2 class="info">Valor atual:</h2>
+              R$90.000
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Valor inicial:</h2>
+              R$70.000
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Expira em:</h2>
+              30/11/2021
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Dar um lance:</h2>
+              <input type="text">
+              <button type="submit">Dar lance</button>
+            </li>
+          </div>
       </div>
+      
     </ul>
   </div>
 </div>
