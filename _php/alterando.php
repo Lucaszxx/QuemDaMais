@@ -2,6 +2,18 @@
     include('../_html/alterardados.php');
     require('./vendor/autoload.php');
     use GuzzleHttp\Client;
+    $client = new Client([
+        'base_uri' => 'https://api-quem-da-mais.herokuapp.com',
+    ]);
+
+    // Verificando código
+    $codEnviado = $_POST['codigo'];
+    if ($codEnviado != $codigo){
+        echo "<script>window.alert('Código de validação incorreto')</script>";
+        die();
+        exit();
+        header('refresh: 1; url=../_html/indexlogado.php');
+    }
 
 try
 {
@@ -10,28 +22,20 @@ try
     $newendereco = $_POST['newendereco'];
     $newtelefone = $_POST['newtelefone'];
     $newsite = $_POST['newsite'];
+    $newsenha = $_POST['newsenha'];
 
-    $client = new GuzzleHttp\Client([
-        'base_uri' => 'https://api-quem-da-mais.herokuapp.com/usuarios/usuarios', [
-            'headers' => [
-                'Content-type' => 'application/json',
-                'Authorization' => 'Sei lá',
-            ],
-            'body' => json_encode([
-                'nome' => 'Lucas',
-            ])
+    $response = $client->request('PATCH', '/usuarios/usuario',[
+        'json' => [
+            'nome' => $newnome,
+            'telefone' => $newtelefone,
+            'endereco' => $newendereco,
+            'link' => $newsite,
+            'senha' => $newsenha,
+            'cpf_cnpj' => $cpf_cadr,
         ]
     ]);
-
-    //$response = $client->PATCH('')
-    //$body = $response->getBody();
-    //$arr_body = json_decode($body);
-    //print_r($arr_body);
-    
+    header('refresh: 0.1; url=./_php/sair.php');
 }
-
-catch(Expection $e)
-{
-    echo "Algo deu errado";
+catch (ClientException $e) {
+    echo $response->getStatusCode();
 }
-

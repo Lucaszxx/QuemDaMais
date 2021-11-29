@@ -84,27 +84,40 @@ body {
     margin-left: 50px;
 }
 
-
-/* FLEXBOX */
-.box {
-    display: flex;
-    flex-direction: row-reverse;
-    background-color: #AF4A24;
-    margin-left: -50px;
-    width: 1408px;
-    margin-top: -8px;
-    border: solid rgb(0, 0, 0) 1px;
-}
-
 .anuncios {
     position: absolute;
     display: flex;
     border: solid rgba(255, 250, 250, 0.178) 1px;
     width: 1320px;
     margin-top: 90px;
-    height: 1950px;
+    height: 1550px;
     border-radius: 10px;
     background-color: #a34215;
+}
+
+.box {
+    display: flex;
+    grid-gap: 50px 90px;
+    margin-left: 70px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.divFoto {
+    border: solid rgb(202, 202, 202) 2px;
+    width: 330px;
+    height: 250px;
+    border-radius: 10px;
+}
+
+.divFoto ul {
+    margin-left: -45px;
+}
+
+.fotocarro {
+    width: 330px;
+    height: 250px;
+    border-radius: 7px;
 }
 
 /* LINKS BARRA */
@@ -140,60 +153,6 @@ body {
     letter-spacing: 1px;
 }
 
-
-.flex-container {
-    display: flex;
-    grid-gap: 50px 90px;
-    margin-left: 135px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-.fotocarro {
-    width: 280px;
-    height: 190px;
-    border: solid #ffffff77 1px;
-    border-radius: 4px;
-}
-
-.descricao {
-    text-align: center;
-    color: snow;
-    font-family: 'Source Sans Pro', sans-serif;
-    margin-top: -20px;
-    margin-left: -15px;
-}
-
-.descricao2 {
-    position: absolute;
-    margin-left: 320px;
-    margin-top: -163px;
-    color: snow;
-    font-family: 'Source Sans Pro', sans-serif;
-    text-align: center;
-}
-
-.btvm {
-    margin-top: 2px;
-    background-color: #AF4A24;
-    border-radius: 10px;
-    height: 35px;
-    width: 110px;
-    color: snow;
-    border: none;
-    box-shadow: 0 0 5px black;
-    font-family: 'Source Sans Pro', sans-serif;
-}
-
-.btvm:hover {
-    transform: scale(1.2);
-    background-color: #AF4A24;
-    border-radius: 10px;
-    height: 40px;
-    font-family: 'Source Sans Pro', sans-serif;
-    box-shadow:inset 0 -4px 0 0 rgba(0,0,0,.2)
-}
-
 li {
     width:  auto;
     color: snow;
@@ -206,28 +165,20 @@ li {
     font-family: 'Fjalla One', sans-serif;
 }
 
-#btinfo {
-    background: none;
-    border: none;
-    color: snow;
-    background: green;
-    margin-top: 5px;
-}
-
-.btinfo {
-    background: green;
-    box-shadow: none;
-    height: 30px;
-    width: 160px;
-    margin-left: 60px;
-    margin-top: 20px;
-    box-shadow: rgba(0, 77, 0, 0.795) 2px 2px;
+.btInfo {
+    box-shadow: 2px 2px 2px black;
     border: solid black 1px;
+    color: snow;
+    background-color: green;
+    border-radius: 3px;
+    height: 40px;
+    margin-left: 100px;
+    margin-top: 5px;
+    font-size: 17px;
 }
 
-.linkminfo {
+.btInfo a {
     text-decoration: none;
     color: snow;
-    font-family: 'Fjalla One', sans-serif;
-    font-size:medium
+    font-family: 'Source Sans Pro', sans-serif;
 }

@@ -1,9 +1,6 @@
 <?php
-//require_once("../_php/verificaruser.php");
-
-
-
-
+require_once("../_php/verificaruser.php");
+include('../_html/indexlogado');
 ?>
 
 <!DOCTYPE html>

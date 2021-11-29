@@ -1,5 +1,5 @@
 <?php
-//include_once ('../_php/verificaruser.php');
+include_once ('../_php/verificaruser.php');
 ?>
 
 

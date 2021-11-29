@@ -1,27 +1,3 @@
-<!--<?php
-
-    require ('../_php/vendor/autoload.php');
-
-    try {
-        $client = new GuzzleHttp\Client();
-        $resposta = $client->request(
-            'GET',
-            'https://api-quem-da-mais.herokuapp.com/veiculos/veiculos' // URI da Api
-        );
-
-        $dados = json_decode($resposta->getBody());
-        // Dados veiculo
-        $nomeCarro = $dados->modelo;
-        echo $nomeCarro;
-
-    }
-    catch (Exception $e){
-        echo "Algo deu errado!";
-    }
-
-
-?>
--->
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -29,14 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../_css/index.css">
+    <link rel="stylesheet" href="../_css/indexlogado.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!--Link de fonte-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=PT+Sans+Narrow&family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
-    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+    <title>Bem vindo</title>
 </head>
 
 <body>
@@ -72,11 +54,141 @@
 
     <div class="anuncios">
         <div class="flex-container">
-            <ul class="">
-                <img class="fotocarro" src="" alt="">
-                <li>Carro 1</li>
-                <li></li>
-            </ul>
+            <div>
+                <img class="fotocarro" src="../_img/carro1.jpg" alt="">
+                <div>
+                    <li>Chevrolet Tracker</li>
+                    <li>2020</li>
+                    <li>Leilão: Em andamento</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro2.jpeg" alt="">
+                <div>
+                    <li>Ford Ka</li>
+                    <li>2020</li>
+                    <li>Leilão: Encerrado</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro2.jpeg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>Leilão: Encerrado</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro2.jpeg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro2.jpeg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro2.jpeg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro2.jpeg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro2.jpeg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro2.jpeg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro1.jpg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro1.jpg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro1.jpg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro1.jpg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro1.jpg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
+            <div>
+                <img class="fotocarro" src="../_img/carro1.jpg" alt="">
+                <div>
+                    <li>2020</li>
+                    <li>sei lá</li>
+                    <li>sei lá 2</li>
+                    <li class="btinfo"><button id="btinfo"><a class="linkminfo" href="../maisinfo">MAIS INFORMAÇÕES</a></button></li>
+                </div>
+            </div>
         </div>
 
 

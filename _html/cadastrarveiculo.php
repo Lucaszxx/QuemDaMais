@@ -1,5 +1,5 @@
 <?php
-    //include ('./verificaruser.php');
+    include ('../_php/verificaruser.php');
 ?>
 
 <!DOCTYPE html>
@@ -59,25 +59,25 @@
 
     <div class="divprincipal">
         <div class="box2">
-            <form action="#" method="post">
+            <form action="../_php/veiculoapi.php" method="post" autocomplete="off">
                 <div id="fotocarro"><img style="margin-left: 10px; width: 130px; border-radius: 7px;" src="../_img/carro.jpg" alt=""></div>
                 <input type="file" id="inputcarro">
                 <ul class="itens">
                     <li class="item">
                         <h2>Fabricante:</h2>
-                        <input class="inputs" type="text" name="newnome">
+                        <input class="inputs" type="text" name="fabricante">
                     </li>
                     <li class="item">
                         <h2>Modelo:</h2>
-                        <input class="inputs" type="email" name="newemail">
+                        <input class="inputs" type="text" name="modelo">
                     </li>
                     <li class="item">
                         <h2>Ano:</h2>
-                        <input type="text" class="inputs">
+                        <input type="text" class="inputs" name="ano">
                     </li>
                     <li class="item">
                         <h2>Câmbio:</h2>
-                        <input type="text" class="inputs" list="transmissao">
+                        <input type="text" class="inputs" list="transmissao" name="cambio">
                         <datalist id="transmissao">
                             <option value="Manual"></option>
                             <option value="Automático"></option>
@@ -86,7 +86,7 @@
                     </li>
                     <li class="item">
                         <h2>Renavam: </h2>
-                        <input type="text" class="inputs" required>
+                        <input type="text" class="inputs" required name="renavam">
                     </li>
                 </ul>
                 <div id="barrameio">
@@ -94,7 +94,7 @@
                 <ul class="itens2">
                     <li class="item">
                         <h2>Carroceria:</h2>
-                        <input type="text" class="inputs" list="carroceria">
+                        <input type="text" class="inputs" list="carroceria" name="carroceria">
                         <datalist id="carroceria">
                             <option value="Sedan"></option>
                             <option value="Hatch"></option>
@@ -104,7 +104,7 @@
                     </li>
                     <li class="item">
                         <h2>Combustivel:</h2>
-                        <input type="text" class="inputs" list="combustivel">
+                        <input type="text" class="inputs" list="combustivel" name="combustivel">
                         <datalist id="combustivel">
                             <option value="Flex"></option>
                             <option value="Gasolina"></option>
@@ -115,7 +115,7 @@
                     </li>
                     <li class="item">
                         <h2>Condição:</h2>
-                        <input type="text" class="inputs" list="condicao">
+                        <input type="text" class="inputs" list="condicao" name="condicao">
                         <datalist id="condicao">
                             <option value="Novo"></option>
                             <option value="Semi-Novo"></option>
@@ -124,11 +124,11 @@
                     </li>
                     <li class="item">
                         <h2>Informações Adicionais:</h2>
-                        <input type="text" class="inputs">
+                        <input type="text" class="inputs" name="ainfo">
                     </li>
                     <li class="item">
                         <h2>Cor:</h2>
-                        <input type="text" class="inputs" list="cor">
+                        <input type="text" class="inputs" list="cor" name="cor">
                         <datalist id="cor">
                             <option value="Branco"></option>
                             <option value="Preto"></option>

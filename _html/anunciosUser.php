@@ -47,7 +47,7 @@
 
     <div class="anunciosUser">
         <div class="box">
-            <h2 class="garagem">Minha Garagem</h2>
+            <h2 class="garagem">Meus Anuncios</h2>
                 <div class="box2">
                     <ul class="dadosVeiculo">
                     <a href="#"><img class="imgVeiculo" src="../_img/fitjpg.jpg" alt=""></a>

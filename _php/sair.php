@@ -6,7 +6,7 @@
     session_destroy();
 
     if($tipo == 'sleep') {
-        header('location: ../_html/loging.php');
+        header('location: ../_html/loging.html');
     } else
     {
         echo "<script>window.alert('Caso queira anunciar ou dar algum lance, você precisa estar logado.')</script>";

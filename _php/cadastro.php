@@ -12,9 +12,6 @@ try
     $endereco = $_POST['endereco_cad'];
     $link = $_POST['site_cad'];
     $senha = $_POST['senha_cad'];
-    $avatar = $_FILES['avatar_usuario']['name'];
-    echo $avatar;
-
     $client = new Client([
         'base_uri' => 'https://api-quem-da-mais.herokuapp.com',
     ]);
@@ -28,40 +25,9 @@ try
             'data_nasc' => $data_nasc,
             'endereco' => $endereco,
             'link' => $link,
-            'senha' => $senha
+            'senha' => $senha,
         ]
     ]);
-
-    
-    if ($response->getStatusCode() == 200) {
-        try
-        {
-        $response = $client->post('https://api-quem-da-mais.herokuapp.com', [
-            'form_fields' => [
-                'field_name' => 'avatar_usuario',
-            ],
-            'form_files' => [
-                [
-                    'name'     => $avatar,
-                    'contents' => fopen($avatar, 'r')
-                ],
-            ]
-        ]);
-        }
-        catch (Expection $e) 
-        {
-            echo "Algo deu errado " . $e;
-        }
-    }
-    else
-    {
-        echo '<script>window.alert("A imagem não foi inserida")</script>';
-    }
-    //$body = $response->getBody(); 
-    //$arr_body = json_decode($body);
-    //print_r($arr_body);
-
-
     
 }
 catch (Exception $e){
