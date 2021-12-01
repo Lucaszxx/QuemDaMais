@@ -12,7 +12,7 @@ body {
 }
 
 .divmenu {
-    margin-left: 535px;
+    margin-left: 500px;
     margin-top: -20px;
 }
 
@@ -152,9 +152,10 @@ li {
 .anuncioVeiculo {
     position: absolute;
     margin-top: 80px;
-    border: solid snow 2px;
+    border: solid rgb(0, 0, 0) 2px;
+    border-radius: 8px;
     width: 1330px;
-    background-color: black;
+    background-color: #000000;
 }
 
 .dadosAnuncio {
@@ -214,28 +215,29 @@ li {
 .boxInformacoes {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: -20px;
     margin-left: 300px;
     border: solid snow 1px;
     border-radius: 8px;
     width: 250px;
+    height: 450px;
     background-color: rgb(37, 37, 37);
 }
 
 .boxInformacoes2 {
     display: flex;
     flex-direction: column;
-    margin-top: 60px;
+    margin-top: 10px;
     margin-left: 75px;
     border: solid snow 1px;
     border-radius: 8px;
     width: 250px;
-    height: 300px;
+    height: 350px;
     background-color: rgb(37, 37, 37);
 }
 
 .carroNome {
-    padding-top: 20px;
+    padding-top: 10px;
     color: snow;
     margin-left: 50px;
 }
@@ -246,7 +248,7 @@ li {
 
 .info {
     position: absolute;
-    margin-top: -12px;
+    margin-top: -25px;
     color: rgb(255, 255, 255);
     font-size: 15px;
     display: block;
@@ -260,3 +262,7 @@ h1 {
     color: green;
 }
 
+.owl-carousel .item .imgVeiculo {
+    height: 380px;
+    width: 440px;
+}

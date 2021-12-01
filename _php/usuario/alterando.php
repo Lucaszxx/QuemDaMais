@@ -1,6 +1,6 @@
 <?php
-    include('../_html/alterardados.php');
-    require('./vendor/autoload.php');
+    include('../../_html/usuario/alterardados.php');
+    require('../vendor/autoload.php');
     use GuzzleHttp\Client;
     $client = new Client([
         'base_uri' => 'https://api-quem-da-mais.herokuapp.com',

@@ -1,5 +1,5 @@
 body {
-    background-color: #303030;
+    background-color: #111111;
     /*#080808ea*/
 }
 
@@ -86,7 +86,7 @@ body {
   /* Barra inferior */
   #barrasepara {
     position: absolute;
-    border: solid rgba(20, 20, 20, 0.404) 1px;
+    border: solid rgba(56, 56, 56, 0.404) 1px;
     border-radius: 2px;
     width: 1368px;
     margin-left: -10px;

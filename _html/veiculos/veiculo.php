@@ -1,23 +1,33 @@
 <?php
-require_once("../_php/verificaruser.php");
-include('../_html/indexlogado');
-?>
+include ('./indexlogado.php');
+include ('../_php/vendor/autoload.php');
+use GuzzleHttp\Client;
 
+$client = new Client(['base_uri' => 'https://api-quem-da-mais.herokuapp.com', ]);
+
+$veiculo_id = $_GET['veiculo_id'];
+$response = $client->request('GET', '/veiculos/veiculo/' . $veiculo_id);
+$dados = json_decode($response->getBody());
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../_css/anuncio.css">
-  <title>Anunciar</title>
-  
-  <div id="barracor">
-    <img id="logo" src="../_img/logoquemdamais.png" alt="">
+  <link rel="stylesheet" href="../../_css/veiculo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+</head>
+<body>
+<div id="barracor">
+  <a href="./indexlogado.php"><img id="logo" src="../_img/logoquemdamais.png" alt=""></a>
 </div>
 
 <div id="barrasepara">
     </div>
+<!--
 <div class="divmenu">
 <nav class="menu">
 			<ul>
@@ -40,78 +50,90 @@ include('../_html/indexlogado');
 			</ul>
 		</nav>
 </div>
-
+-->
 <div class="anuncioVeiculo">
   <div class="fotoAnuncio">
-    <ul>
-      <li>
-      <img class="fotoCarro" src="../_img/foto1fit.jpg" alt="">
-      <img class="fotoCarro2" src="../_img/foto2fit.jpg" alt="">
-      <img class="fotoCarro3" src="../_img/foto3fit.jpg" alt="">
-      </li>
-    </ul>
+    <!--Carrosel -->
+    <div class="owl-carousel owl-theme">
+      <div class="item">
+        <img class="imgVeiculo" src="<?php echo $dados->path_imagem ?>" alt="">
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+    <!--Carrosel -->  
   </div>
   <div class="informacoesAnuncio">
     <ul class="dadosAnuncio">
       <div class="informacoesCarro">
-        <h2 class="carroNome">Chevrolet Tracker</h2>
           <div class="boxInformacoes">
             <li class="dadoAnuncio">
               <h2 class="info">Modelo:</h2>
-              Chevrolet Tracker
+              <?php echo $dados->fabricante . " " . $dados->modelo?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Ano:</h2>
-              2021
+              <?php echo $dados->ano ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Câmbio:</h2>
-              Automático
+              <?php echo $dados->cambio ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Combustivel:</h2>
-              Flex
+              <?php echo $dados->combustivel ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Carroceria:</h2>
-              SUV
+              <?php echo $dados->carroceria ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Condição:</h2>
-              Semi-Novo
+              <?php echo $dados->condicao ?>
             </li>
           </div>
-      </div>
-      <div class="informacoesCarro2">
-        <h2 class="carroNome2">Lances</h2>
+          
           <div class="boxInformacoes2">
             <li class="dadoAnuncio">
-              <h2 class="info">Valor atual:</h2>
-              R$90.000
+              <h2 class="info">Renavam:</h2>
+                <?php echo $dados->renavam ?>
             </li>
             <li class="dadoAnuncio">
-              <h2 class="info">Valor inicial:</h2>
-              R$70.000
+              <h2 class="info">Cor:</h2>
+              <?php echo $dados->cor ?>
             </li>
             <li class="dadoAnuncio">
-              <h2 class="info">Expira em:</h2>
-              30/11/2021
+              <h2 class="info">Status Do Veiculo:</h2>
+              <?php echo $dados->status_veiculo?>
             </li>
             <li class="dadoAnuncio">
-              <h2 class="info">Dar um lance:</h2>
-              <input type="text">
-              <button type="submit">Dar lance</button>
+              <h2 class="info">Informações Adicionais:</h2>
+              <?php echo $dados->informacoes_adicionais;?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Id Do Veiculo:</h2>
+              <?php echo $dados->veiculo_id;?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Id Do Dono:</h2>
+              <?php echo $dados->vendedor_id;?>
             </li>
           </div>
-      </div>
-      
-    </ul>
-  </div>
-</div>
+          <div class="boxInformacoes3">
+            <li class="dadoAnuncio">
+              <h2 class="info">Informações Adicionais:</h2>
+              <?php echo $dados->informacoes_adicionais;?>
+            </li>
+          </div>
 
-
-</head>
-<body>
-     
-</body>
-</html>
+          <script>
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin:10,
+        dots: false,
+      });
+    })
+  </script>
+  </body>
+  </html>

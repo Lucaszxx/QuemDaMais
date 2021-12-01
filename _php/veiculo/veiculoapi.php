@@ -7,7 +7,8 @@
     $client = new Client([
     'base_uri' => 'https://api-quem-da-mais.herokuapp.com',
 ]);
-
+try
+{
     $fabricante = $_POST['fabricante'];
     $modelo =  $_POST['modelo'];
     $ano = $_POST['ano'];
@@ -26,12 +27,16 @@
             'modelo' => $modelo,
             'ano' => $ano,
             'cambio' => $cambio,
-            'cor' => $carroceria,
+            'cor' => $cor,
+            'carroceria' => $carroceria,
             'combustivel' => $combustivel,
             'condicao' => $condicao,
             'informacoes_adicionais' => $ainfo,
             'vendedor_id' => $id,
         ]
-    ])
-
+    ]);
+}
+catch(Expection $e){
+    echo 'Deu errado';
+}
 ?>

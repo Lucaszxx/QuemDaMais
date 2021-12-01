@@ -1,40 +1,40 @@
 <?php
-    include ('../_php/verificaruser.php');
-?>
+include ('./indexlogado.php');
+include ('../_php/vendor/autoload.php');
+use GuzzleHttp\Client;
 
+$client = new Client(['base_uri' => 'https://api-quem-da-mais.herokuapp.com', ]);
+
+$veiculo_id = $_GET['veiculo_id'];
+$leilao_id = $_GET['leilao_id'];
+$response = $client->request('GET', '/veiculos/veiculo/' . $veiculo_id);
+$dados = json_decode($response->getBody());
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../_css/cadastrarveiculo.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <!--GOOGLE FONTS-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=PT+Sans+Narrow&family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
-    <title>Bem vindo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../_css/veiculos/anuncio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
 </head>
-
 <body>
 <div id="barracor">
-    <img id="logo" src="../_img/logoquemdamais.png" alt="">
+<a href="./indexlogado.php"><img id="logo" src="../_img/logoquemdamais.png" alt=""></a>
 </div>
+
+<div id="barrasepara">
+    </div>
+<!--
 <div class="divmenu">
 <nav class="menu">
 			<ul>
 				<li><img style="position: absolute; margin-top:3px; width:35px; margin-left: -35px;" <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABmJLR0QA/wD/AP+gvaeTAAAE0UlEQVR4nO3bW6xcUxzH8TXq2tYtLlHxUJdEpInrg2pIqWoIQsQRl0Rckop4qFAqIdLgwQMP9aRKBJGIhIhLgoZIL5Q0LlFBEJcQUhqte9vjfDysdZx9jtOZOTN7Zu+j6/syk5m91v+/fvPf//Vfa+0JIZPJZDKZTCazM9Ko0jjWhhDmVOlDE9Y0Go3TWl1UtYCqtN+KRqPRUp9d++FIK9pxtJ9M5IfdpZeO7AxkAbskC9gltRMQa7G6yferTZwd9tcttRMwhDAUQih7dq71bN8xw+FRtR9jmYhfdYzASUXtBGyVA+tG7QQMvcmB/09yDszUT8CcA7sn58B2yTkwUz8Bcw7snpwD2yXnwEz9BMw5sHtyDmyXnAMzWcBuyQJ2SS2eTKhjHmyXqiNwTcX2mzFpSqlJTWkP9WBqCOGMEMKCEMK8EMLhIYRtIYQvQwivhxCWNxqNz8uy978Ax+AmvIo/WzwdMIRncWLVflcG9saFeBBfjRFoEOuwFCdjGvbHHCzHHwUhX8TsqsfTF3AEFmEl/hoj2o94Ggsxo0U/ByVxNxfar8H5/RpL30kRVWS7+HDP7TgJE86hOBD3YEuh31U4qxdjqBSsx7d4BAPYr8S+98Od2FQQch3O6+SH2WlJefU2bCwI+S4uQtV16uQBe6Rc+m1ByA24ElOq9m/SgD1xA74pCPlhSiE5ItsFu6fo+7wg5Ec5IidIEvI6o+vODTi7pP73wlV4SSyxfsVrOLeM/mtDEnJhQcgh3NFFf0fhvlQFbDc+d5c5hlqA3XAztiURF0yg7RRcgFdS22Gew+k4FDNwi5FFQ70iUUmnblicBvhKG9ceIhb/xYnpdzyMk3bQ5tZ03Wvd+loq4kpmVXrfsZg4IA3wpybXzMVT2FoQ7hPcqMWiIEUj/NKJf32hGzHFJSF8N+bzfcQyaENBtO14BvO1ucop9L+p2XWVbumP+Tvpv+fB4t9gh1r83fSa9LoytTk2hHB9COGKEMLe6bvvQwgrQggPNRqN7/7TQ3OuTq9vTrBd9YyJzMV4R9x3nIWjxTX0YIqQQbxXiLYhvC4W3rt1aH+hOElt1+ttNzQwG/fji5RjFmP/kvp/3Pj8jReMlCCb8QCO6dDOLrgUz6e+t+HKMsYwnrGiaF/vYIC/YwWO69LWrmLp8QTex6d4FHPS9yfgckzrwsY54gbGMB/jzG78Hs9IM9G+Tp/Pxrl42eg6axUu0eEt1StwCt4o+PkNrkV5c4OYd5YavSYdNrYMpxpnZhMr/XuN3u/7Pn12WGkOdoB4lvN04UfehCXYq2xDbzWJtHbLgem43uiyYiue1OdzEczEY2KOI65778I+vTK4Rlx7Tki0Jv3NE+uxwYKY68XF/J5l+T2O3YPT3TJcUG8VJ5yDe2Wzp4jrzaVG70L/nAY5s0Q709OtOXz+8ne6dY8sy0aliLvQAynSFQa5Eud3GvFGdm5+KPS7EseXPYbaIJ7yFc+PiSXLEm0eZom13IBYjw7zJub22v/akPLVEqNLpV+SuLOatJuPDwptNmCgn77XCrGAHjC6ThsSa8yLsK94NHox3i5c8xkuk89PRhDXv8vwmx2zMUXuHlX7W1vEZ20WiZPOFnH9u1bcvppatX+ZTCaTyWQymUwm0x/+Aa/9sMyIIr0SAAAAAElFTkSuQmCC"><a href="#">Anunciar</a>
                     <ul>
-                        <li><a href="../_php/cadastrarveiculo.php">Cadastrar veiculo</a></li>
+                        <li><a href="./anuncio.php">Cadastrar veiculo</a></li>
                         <li><a href="#">Meus anuncios</a></li>
                     </ul>
                 </li>
@@ -51,96 +51,115 @@
 			</ul>
 		</nav>
 </div>
-
-    <div id="barrasepara">
+-->
+<div class="anuncioVeiculo">
+  <div class="fotoAnuncio">
+    <!--Carrosel -->
+    <div class="owl-carousel owl-theme">
+      <div class="item">
+        <img class="imgVeiculo" src="<?php echo $dados->path_imagem ?>" alt="">
+      </div>
+      <div class="item">
+        <img class="imgVeiculo" src="<?php echo $dados->path_imagem2 ?>" alt="">
+      </div>
+      <div class="item">
+        <img class="imgVeiculo" src="<?php echo $dados->path_imagem3 ?>" alt="">
+      </div>
+      <div class="item">
+        <img class="imgVeiculo" src="<?php echo $dados->path_imagem4 ?>" alt="">
+      </div>
+      <div class="item">
+        <img class="imgVeiculo" src="<?php echo $dados->path_imagem5 ?>" alt="">
+      </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  
+    <!--Carrosel -->  
+  </div>
+  <div class="informacoesAnuncio">
+    <ul class="dadosAnuncio">
+      <div class="informacoesCarro">
+        <h2 class="carroNome"><?php echo $dados->fabricante . " " . $dados->modelo ?></h2>
+          <div class="boxInformacoes">
+            <li class="dadoAnuncio">
+              <h2 class="info">Modelo:</h2>
+              <?php echo $dados->fabricante ?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Ano:</h2>
+              <?php echo $dados->ano ?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Câmbio:</h2>
+              <?php echo $dados->cambio ?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Combustivel:</h2>
+              <?php echo $dados->combustivel ?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Carroceria:</h2>
+              <?php echo $dados->carroceria ?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Condição:</h2>
+              <?php echo $dados->condicao ?>
+            </li>
+          </div>
+
+          <!-- Requisição do leilão-->
+          <?php
+$response = $client->request('GET', 'leiloes/leilao/' . $leilao_id);
+$dados = json_decode($response->getBody());
+// Variaveis
+$data_final = $dados->data_final;
+$lance_inicial = $dados->lance_inicial;
+$lance_final = $dados->lance_final;
+if (empty($lance_final))
+{
+    $lance_final = 0;
+}
 
 
+?>
+          <!-- Requisição do leilão-->
 
-    <div class="divprincipal">
-        <div class="box2">
-            <form action="../_php/veiculoapi.php" method="post" autocomplete="off">
-                <div id="fotocarro"><img style="margin-left: 10px; width: 130px; border-radius: 7px;" src="../_img/carro.jpg" alt=""></div>
-                <input type="file" id="inputcarro">
-                <ul class="itens">
-                    <li class="item">
-                        <h2>Fabricante:</h2>
-                        <input class="inputs" type="text" name="fabricante">
-                    </li>
-                    <li class="item">
-                        <h2>Modelo:</h2>
-                        <input class="inputs" type="text" name="modelo">
-                    </li>
-                    <li class="item">
-                        <h2>Ano:</h2>
-                        <input type="text" class="inputs" name="ano">
-                    </li>
-                    <li class="item">
-                        <h2>Câmbio:</h2>
-                        <input type="text" class="inputs" list="transmissao" name="cambio">
-                        <datalist id="transmissao">
-                            <option value="Manual"></option>
-                            <option value="Automático"></option>
-                            <option value="Sequencial"></option>
-                        </datalist>
-                    </li>
-                    <li class="item">
-                        <h2>Renavam: </h2>
-                        <input type="text" class="inputs" required name="renavam">
-                    </li>
-                </ul>
-                <div id="barrameio">
-                </div>
-                <ul class="itens2">
-                    <li class="item">
-                        <h2>Carroceria:</h2>
-                        <input type="text" class="inputs" list="carroceria" name="carroceria">
-                        <datalist id="carroceria">
-                            <option value="Sedan"></option>
-                            <option value="Hatch"></option>
-                            <option value="SUV"></option>
-                            <option value="Picape"></option>
-                        </datalist>
-                    </li>
-                    <li class="item">
-                        <h2>Combustivel:</h2>
-                        <input type="text" class="inputs" list="combustivel" name="combustivel">
-                        <datalist id="combustivel">
-                            <option value="Flex"></option>
-                            <option value="Gasolina"></option>
-                            <option value="Etanol"></option>
-                            <option value="Diesel"></option>
-                            <option value="Elétrico"></option>
-                        </datalist>
-                    </li>
-                    <li class="item">
-                        <h2>Condição:</h2>
-                        <input type="text" class="inputs" list="condicao" name="condicao">
-                        <datalist id="condicao">
-                            <option value="Novo"></option>
-                            <option value="Semi-Novo"></option>
-                            <option value="Usado"></option>
-                        </datalist>
-                    </li>
-                    <li class="item">
-                        <h2>Informações Adicionais:</h2>
-                        <input type="text" class="inputs" name="ainfo">
-                    </li>
-                    <li class="item">
-                        <h2>Cor:</h2>
-                        <input type="text" class="inputs" list="cor" name="cor">
-                        <datalist id="cor">
-                            <option value="Branco"></option>
-                            <option value="Preto"></option>
-                            <option value="Cinza"></option>
-                            <option value="Azul"></option>
-                            <option value="Vermelho"></option>
-                            <option value="Prata"></option>
-                            <option value="Outra cor? Digite no campo."></option>
-                        </datalist>
-                    </li>
-                    <button type="submit" id="alterarbt">Anunciar</button>
-                </ul>
-            </form>
-        </div>
-    </div>
+      </div>
+      <div class="informacoesCarro2">
+        <h2 class="carroNome2">Lances</h2>
+          <div class="boxInformacoes2">
+            <li class="dadoAnuncio">
+              <h2 class="info">Valor atual:</h2>
+              R$: <?php echo $lance_final ?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Valor inicial:</h2>
+              R$: <?php echo $lance_inicial ?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Expira em:</h2>
+              <?php echo str_replace('-', '/', $data_final)?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Dar um lance:</h2>
+              <input type="text">
+              <button type="submit">Dar lance</button>
+            </li>
+          </div>
+      </div>
+      
+    </ul>
+  </div>
+</div>
+
+  <script>
+    $(document).ready(function(){
+      $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin:10,
+        dots: false,
+      });
+    })
+  </script>
+</body>
+</html>

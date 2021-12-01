@@ -14,15 +14,6 @@ body {
     margin-left: 30px;
   }
   
-  #logo:hover {
-    margin-top: 20px;
-    position: absolute;
-    background-color: #AF4A24;
-    box-shadow: 0 0 15px black;
-    transform: scale(1.6);
-    border-radius: 12px;
-  }
-  
   /* FLEXBOX */
   .box {
     display: flex;

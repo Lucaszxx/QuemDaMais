@@ -1,0 +1,131 @@
+.anuncioVeiculo {
+    position: absolute;
+    margin-top: 80px;
+    border: solid rgb(0, 0, 0) 2px;
+    border-radius: 8px;
+    width: 1330px;
+    height: 1600px;
+    background-color: #000000;
+}
+
+.dadosAnuncio {
+    margin-left: 590px;
+    text-align: center;
+    /*background-color: #AF4A24;*/
+    flex-direction: row;
+}
+
+.dadoAnuncio {
+    width: 200px;
+    margin-top: 30px;
+    border-radius: 5px;
+    color: rgb(214, 97, 19);
+    font-size: 28px;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.informacoesCarro {
+    background-color: #333333f1;
+    text-align: center;
+    margin-left: -445px;
+    margin-top: 50px;
+    border-radius: 10px;
+    width: 791px;
+    height: 453px;
+
+}
+
+.informacoesCarro2 {
+    position: absolute;
+    background-color: #333333f1;
+    width: 400px;
+    border-radius: 10px;
+    height: 500px;
+    margin-left: 420px;
+    margin-top: -500px;
+}
+
+.divLances {
+    border: snow 2px;
+}
+
+.inputLance {
+    margin-top: 10px;
+    margin-left: -80px;
+    height: 20px;
+    width: 200px;
+}
+
+.informacoesAnuncio {
+    margin-left: -150px;
+    width: 200px;
+    display: block;
+}
+
+.boxInformacoes {
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+    margin-left: 10px;
+    border: solid snow 1px;
+    border-radius: 8px;
+    width: 250px;
+    height: 450px;
+    background-color: rgb(37, 37, 37);
+}
+
+.boxInformacoes2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: -453px;
+    margin-left: 270px;
+    border: solid snow 1px;
+    border-radius: 8px;
+    width: 250px;
+    height: 450px;
+    background-color: rgb(37, 37, 37);
+}
+
+.boxInformacoes3 {
+    display: flex;
+    flex-direction: column;
+    margin-top: -453px;
+    margin-left: 530px;
+    border: solid snow 1px;
+    border-radius: 8px;
+    width: 250px;
+    height: 450px;
+    background-color: rgb(37, 37, 37);
+}
+
+.carroNome {
+    padding-top: 10px;
+    color: snow;
+    margin-left: -550px;
+}
+
+.carroNome2 {
+    color: snow;
+}
+
+.info {
+    position: absolute;
+    margin-top: -25px;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    display: block;
+}
+
+h2 {
+    text-align: center;
+}
+
+h1 {
+    color: green;
+}
+
+.owl-carousel .item .imgVeiculo {
+    height: 380px;
+    width: 440px;
+}
