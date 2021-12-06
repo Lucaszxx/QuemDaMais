@@ -1,9 +1,10 @@
 <?php
-    include('../_html/cadastro.html');
-    include('./vendor/autoload.php');
+    include('../../_html/usuario/cadastro.html');
+    include('../vendor/autoload.php');
     use GuzzleHttp\Client;
+   
 try
-{    
+{   
     $cpf_cad = $_POST['cpf_cad'];
     $nome_cad = $_POST['nome_cad'];
     $telefone = $_POST['telefone_cad'];
@@ -28,7 +29,7 @@ try
             'senha' => $senha,
         ]
     ]);
-    
+
 }
 catch (Exception $e){
     echo "Algo deu errado";

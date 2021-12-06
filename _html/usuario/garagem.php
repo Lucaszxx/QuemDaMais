@@ -1,5 +1,4 @@
 <?php
-include('../usuario/garagem.php');
 require ('../../_php/usuario/verificaruser.php');
 include('../../_php/vendor/autoload.php');
 use GuzzleHttp\Client;
@@ -7,7 +6,7 @@ $client = new Client([
     'base_uri' => 'https://api-quem-da-mais.herokuapp.com',
 ]);
 
-$response = $client->request('GET', 'leiloes/leiloes/criados/' . $id);
+$response = $client->request('GET', '/veiculos/produtos/' . $id);
 $dados = json_decode($response->getBody());
 ?>
 
@@ -67,24 +66,18 @@ $dados = json_decode($response->getBody());
         <div class='box'>
         <?php
             for($cont = 0; $cont < count($dados); $cont++){
-                $data_final = $dados[$cont]->data_final;
-                $lance_inicial = $dados[$cont]->lance_inicial;
-                $lance_final = $dados[$cont]->lance_final;
-                $lance_inicial_formatado = number_format($lance_inicial, 2, ',', '.');
-                $lance_final_formatado = number_format($lance_final, 2, ',', '.');
+                $fotoVeiculo = $dados[$cont]->path_imagem;
                 ?>
                     <div class="divFoto">
                         <img class="fotocarro" src="<?php echo $fotoVeiculo ?>" alt="">
                         <ul>
-                            <li >Leilão Id: <?php echo $dados[$cont]->leilao_id;?></li>
-                            <li >Data Final: <?php echo str_replace('-', '/', $data_final)?></li>
-                            <li >Lance Inicial R$: <?php echo $lance_final_formatado;?></li>
-                            <li >Ultimo Lance R$: <?php echo $lance_inicial_formatado;?></li>
-                            <li >Id ultimo a dar lance: <?php echo $dados[$cont]->comprador_id;?></li>
-                            <li >Participantes: <?php echo $dados[$cont]->participantes;?></li>
-                            <li >Status: <?php echo $dados[$cont]->status_leilao;?></li>
-                            <li >Destaque: <?php echo $dados[$cont]->status_destaque;?></li>
-                            <button class="btInfo"><a target="_blank" href="./anuncio.php?veiculo_id=<?php echo $dados[$cont]->veiculo_id;?>&leilao_id=<?php echo $dados[$cont]->leilao_id; ?>">Ver Leilão</a></button>
+                            <li >Fabricante: <?php echo $dados[$cont]->fabricante;?></li>
+                            <li >Modelo: <?php echo $dados[$cont]->modelo;?></li>
+                            <li >Ano: <?php echo $dados[$cont]->ano;?></li>
+                            <li >Condição: <?php echo $dados[$cont]->condicao;?></li>
+                            <li >Câmbio: <?php echo $dados[$cont]->cambio;?></li>
+                            <li >Status: <?php echo $dados[$cont]->status_veiculo;?></li>
+                            <button class="btInfo"><a target="_blank" href="../../_html/veiculos/veiculo.php?veiculo_id=<?php echo $dados[$cont]->veiculo_id;?>">Ver mais</a></button>
                         </ul>
                     </div>
                 <?php

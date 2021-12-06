@@ -1,6 +1,6 @@
 <?php
-include ('./indexlogado.php');
-include ('../_php/vendor/autoload.php');
+include ('../usuario/indexlogado.php');
+include ('../../_php/vendor/autoload.php');
 use GuzzleHttp\Client;
 
 $client = new Client(['base_uri' => 'https://api-quem-da-mais.herokuapp.com', ]);
@@ -79,11 +79,10 @@ $dados = json_decode($response->getBody());
   <div class="informacoesAnuncio">
     <ul class="dadosAnuncio">
       <div class="informacoesCarro">
-        <h2 class="carroNome"><?php echo $dados->fabricante . " " . $dados->modelo ?></h2>
-          <div class="boxInformacoes">
+      <div class="boxInformacoes">
             <li class="dadoAnuncio">
               <h2 class="info">Modelo:</h2>
-              <?php echo $dados->fabricante ?>
+              <?php echo $dados->fabricante . " " . $dados->modelo?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Ano:</h2>
@@ -106,6 +105,40 @@ $dados = json_decode($response->getBody());
               <?php echo $dados->condicao ?>
             </li>
           </div>
+          
+          <div class="boxInformacoes2">
+            <li class="dadoAnuncio">
+              <h2 class="info">Renavam:</h2>
+                <?php echo $dados->renavam ?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Cor:</h2>
+              <?php echo $dados->cor ?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Status Do Veiculo:</h2>
+              <?php echo $dados->status_veiculo?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Informações Adicionais:</h2>
+              <?php echo $dados->informacoes_adicionais;?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Id Do Veiculo:</h2>
+              <?php echo $dados->veiculo_id;?>
+            </li>
+            <li class="dadoAnuncio">
+              <h2 class="info">Id Do Dono:</h2>
+              <?php echo $dados->vendedor_id;?>
+            </li>
+          </div>
+          <div class="boxInformacoes3">
+            <li class="dadoAnuncioDesc">
+              <h2 class="infoDesc">Informações Adicionais:</h2>
+              <?php echo $dados->informacoes_adicionais;?>
+            </li>
+          </div>
+  </div>
 
           <!-- Requisição do leilão-->
           <?php
@@ -115,11 +148,12 @@ $dados = json_decode($response->getBody());
 $data_final = $dados->data_final;
 $lance_inicial = $dados->lance_inicial;
 $lance_final = $dados->lance_final;
+$lance_inicial_formatado = number_format($lance_inicial, 2, ',', '.');
+$lance_final_formatado = number_format($lance_final, 2, ',', '.');
 if (empty($lance_final))
 {
     $lance_final = 0;
 }
-
 
 ?>
           <!-- Requisição do leilão-->
@@ -127,25 +161,26 @@ if (empty($lance_final))
       </div>
       <div class="informacoesCarro2">
         <h2 class="carroNome2">Lances</h2>
-          <div class="boxInformacoes2">
+          <div class="boxInformacoesLeilao">
             <li class="dadoAnuncio">
               <h2 class="info">Valor atual:</h2>
-              R$: <?php echo $lance_final ?>
+              R$: <?php echo $lance_final_formatado ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Valor inicial:</h2>
-              R$: <?php echo $lance_inicial ?>
+              R$: <?php echo $lance_inicial_formatado ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Expira em:</h2>
-              <?php echo str_replace('-', '/', $data_final)?>
+              <?php echo str_replace('-', '/', $data_final) ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Dar um lance:</h2>
-              <input type="text">
+              <form action="../../_php/leilao/alterarLeilao.php" method="post">
+              <input type="text" name="valor">
               <button type="submit">Dar lance</button>
+              </form>
             </li>
-          </div>
       </div>
       
     </ul>

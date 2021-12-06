@@ -78,7 +78,7 @@
                             <li class="teste">Ano: <?php echo $dados[$cont]->ano;?></li>
                             <li class="teste">Condição: <?php echo $dados[$cont]->condicao;?></li>
                             <li class="teste">Câmbio: <?php echo $dados[$cont]->cambio;?></li>
-                            <button class="btInfo"><a target="_blank" href="./anuncio.php?veiculo_id=<?php echo $dados[$cont]->veiculo_id;?>&leilao_id=<?php echo $dados[$cont]->leilao_id;?>">Mais informações</a></button>
+                            <button class="btInfo"><a target="_blank" href="../_html/veiculos/anuncio.php?echo $dados[$cont]->veiculo_id;?>&leilao_id=<?php echo $dados[$cont]->leilao_id;?>">Mais informações</a></button>
 
                         </ul>
                     </div>
