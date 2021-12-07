@@ -156,6 +156,7 @@ li {
     border-radius: 8px;
     width: 1330px;
     background-color: #000000;
+    height: 1700px;
 }
 
 .dadosAnuncio {
@@ -182,7 +183,7 @@ li {
     margin-top: 30px;
     border-radius: 10px;
     width: 900px;
-    height: 500px;
+    height: 750px;
 
 }
 
@@ -271,17 +272,34 @@ h1 {
 }
 
 .boxInformacoes3 {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    margin-top: -453px;
-    margin-left: 530px;
+    margin-top: 20px;
+    margin-left: 10px;
     border: solid snow 1px;
     border-radius: 8px;
-    width: 350px;
-    height: 450px;
+    width: 510px;
+    height: 250px;
     background-color: rgb(37, 37, 37);
     word-wrap: wrap;
     word-wrap: break-word;
+}
+
+.boxInformacoesVendedor {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        margin-top: -472px;
+        margin-left: 520px;
+        border: solid snow 1px;
+        border-radius: 8px;
+        width: 360px;
+        height: 725px;
+        background-color: rgb(37, 37, 37);
+        word-wrap: wrap;
+        word-wrap: break-word;
+    
 }
 
 .boxInformacoesLeilao {

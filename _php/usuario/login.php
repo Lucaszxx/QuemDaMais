@@ -6,7 +6,8 @@ require '../vendor/autoload.php';
 include_once ('../../_html/usuario/loging.html');
 // Definindo o método GUZZLE para poder fazer qualquer tipo de requisição
 use GuzzleHttp\Client;
-$client = new Client(['base_uri' => 'https://api-quem-da-mais.herokuapp.com', ]);
+$client = new Client(['base_uri' => 'https://api-quem-da-mais.herokuapp.com', 
+'verify' => false]);
 try
 {
     $email = $_POST['email_cad'];

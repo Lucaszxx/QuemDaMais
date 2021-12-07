@@ -3,7 +3,9 @@
     require('../../_php/vendor/autoload.php');
 try
 {
-    $client = new GuzzleHttp\Client();
+    $client = new GuzzleHttp\Client([
+        'verify' => false
+    ]);
 
     $resposta = $client->request(
         'GET',

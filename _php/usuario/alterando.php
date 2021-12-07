@@ -4,6 +4,7 @@
     use GuzzleHttp\Client;
     $client = new Client([
         'base_uri' => 'https://api-quem-da-mais.herokuapp.com',
+        'verify' => false
     ]);
 
     // Verificando código

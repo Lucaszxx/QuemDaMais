@@ -3,7 +3,8 @@
 include ('../../_php/vendor/autoload.php');
 use GuzzleHttp\Client;
 
-$client = new Client(['base_uri' => 'https://api-quem-da-mais.herokuapp.com', ]);
+$client = new Client(['base_uri' => 'https://api-quem-da-mais.herokuapp.com', 
+'verify' => false]);
 
 $veiculo_id = $_GET['veiculo_id'];
 $response = $client->request('GET', '/veiculos/veiculo/' . $veiculo_id);
@@ -82,10 +83,6 @@ $dados = json_decode($response->getBody());
             <li class="dadoAnuncio">
               <h2 class="info">Status Do Veiculo:</h2>
               <?php echo $dados->status_veiculo?>
-            </li>
-            <li class="dadoAnuncio">
-              <h2 class="info">Informações Adicionais:</h2>
-              <?php echo $dados->informacoes_adicionais;?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Id Do Veiculo:</h2>

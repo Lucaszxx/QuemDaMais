@@ -4,6 +4,7 @@ include('../../_php/vendor/autoload.php');
 use GuzzleHttp\Client;
 $client = new Client([
     'base_uri' => 'https://api-quem-da-mais.herokuapp.com',
+    'verify' => false
 ]);
 
 $response = $client->request('GET', '/veiculos/produtos/' . $id);

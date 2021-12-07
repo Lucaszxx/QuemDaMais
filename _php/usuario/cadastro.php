@@ -15,6 +15,7 @@ try
     $senha = $_POST['senha_cad'];
     $client = new Client([
         'base_uri' => 'https://api-quem-da-mais.herokuapp.com',
+        'verify' => false
     ]);
 
     $response = $client->request('POST', '/usuarios/usuario', [
