@@ -1,5 +1,9 @@
 <?php
     include_once ('../../_php/usuario/verificaruser.php');
+    if (empty($id)){
+        header('refresh: 0.1; url=../index.php');
+        die;
+    }
     require('../../_php/vendor/autoload.php');
     use GuzzleHttp\Client;
     $client = new Client([

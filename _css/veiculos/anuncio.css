@@ -283,7 +283,7 @@ h1 {
     margin-left: 10px;
     border: solid snow 1px;
     border-radius: 8px;
-    width: 510px;
+    width: 880px;
     height: 250px;
     background-color: rgb(37, 37, 37);
     word-wrap: wrap;
@@ -299,7 +299,7 @@ h1 {
         border: solid snow 1px;
         border-radius: 8px;
         width: 360px;
-        height: 725px;
+        height: 447px;
         background-color: rgb(37, 37, 37);
         word-wrap: wrap;
         word-wrap: break-word;

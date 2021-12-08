@@ -9,7 +9,7 @@ $client = new Client([
     'verify' => false
 ]);
 
-$response = $client->request('GET', 'leiloes/leiloes/criados/' . $id);
+$response = $client->request('GET', 'leiloes/criados/' . $id);
 $dados = json_decode($response->getBody());
 ?>
 <!--

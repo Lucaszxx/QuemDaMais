@@ -177,6 +177,9 @@ $dadosVeiculo = json_decode($response->getBody());
         loop: true,
         margin:10,
         dots: false,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
       });
     })
   </script>
