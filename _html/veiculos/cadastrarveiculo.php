@@ -1,5 +1,9 @@
 <?php
     include ('../../_php/usuario/verificaruser.php');
+    if (empty($id)){
+        header('refresh: 0.1; url=../index.php');
+        die;
+    }
 ?>
 
 <!DOCTYPE html>

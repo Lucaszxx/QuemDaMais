@@ -2,6 +2,7 @@
 include('../usuario/garagem.php');
 require ('../../_php/usuario/verificaruser.php');
 include('../../_php/vendor/autoload.php');
+
 use GuzzleHttp\Client;
 $client = new Client([
     'base_uri' => 'https://api-quem-da-mais.herokuapp.com',
@@ -11,7 +12,7 @@ $client = new Client([
 $response = $client->request('GET', 'leiloes/leiloes/criados/' . $id);
 $dados = json_decode($response->getBody());
 ?>
-
+<!--
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,9 +31,11 @@ $dados = json_decode($response->getBody());
 </head>
 
 <body>
+
 <div id="barracor">
 <a href="./indexlogado.php"><img id="logo" src="../../_img/logoquemdamais.png" alt=""></a>
-</div>
+</div>!-->
+<!--
 <div class="divmenu">
 <nav class="menu">
 			<ul>
@@ -60,10 +63,10 @@ $dados = json_decode($response->getBody());
 			</ul>
 		</nav>
 </div>
-
+--> <!--
     <div id="barrasepara">
     </div>
-
+    !-->
     <div class="anuncios">
         <div class='box'>
         <?php

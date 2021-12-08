@@ -113,7 +113,7 @@ catch (Exception $e)
 <form action="../../_php/usuario/alterando.php" method="POST" autocomplete="off">
     <div class="divprincipal">
         <img class="fotouser" src="<?php echo $avatarr; ?>" alt="">
-        <input type="file" name="fotoinput" id="inputfoto">
+        <h2 style="text-align: center;">Para trocar a sua foto de perfil, acesse pelo app.</h2>
         <div class="box2">
             
                 <ul class="itens">

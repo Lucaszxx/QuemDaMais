@@ -8,7 +8,7 @@ $client = new Client(['base_uri' => 'https://api-quem-da-mais.herokuapp.com',
 
 $veiculo_id = $_GET['veiculo_id'];
 $response = $client->request('GET', '/veiculos/veiculo/' . $veiculo_id);
-$dados = json_decode($response->getBody());
+$dadosVeiculo = json_decode($response->getBody());
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -33,8 +33,79 @@ $dados = json_decode($response->getBody());
   <div class="fotoAnuncio">
     <!--Carrosel -->
     <div class="owl-carousel owl-theme">
+    <div class="item">
+        <?php 
+          $foto1 = $dadosVeiculo->path_imagem;
+          if (isset($foto1)){
+            ?>
+                <img class="imgVeiculo" src="<?php echo $foto1 ?>" alt="">
+            <?php 
+          } else {
+            ?>
+              <div class="item">
+                <img class="imgVeiculo" src="../../_img/carro.jpg" alt="">
+              </div>
+            <?php
+          }
+        ?>
+      </div>
       <div class="item">
-        <img class="imgVeiculo" src="<?php echo $dados->path_imagem ?>" alt="">
+        <?php 
+          $foto2 = $dadosVeiculo->path_imagem2;
+          if (isset($foto2)){
+            ?>
+              <img class="imgVeiculo" src="<?php echo $foto2 ?>" alt="">
+            <?php 
+          } else {
+            ?>
+              <img class="imgVeiculo" src="../../_img/carro.jpg" alt="">
+            <?php
+          }
+        ?>
+      </div>
+      <div class="item">
+        <?php 
+          $foto3 = $dadosVeiculo->path_imagem3;
+          if (isset($foto3)){
+            ?>
+                <img class="imgVeiculo" src="<?php echo $foto3 ?>" alt="">
+            <?php 
+          } else {
+            ?>
+              <div class="item">
+                <img class="imgVeiculo" src="../../_img/carro.jpg" alt="">
+              </div>
+            <?php
+          }
+        ?>
+      </div>
+      <div class="item">
+        <?php 
+          $foto4 = $dadosVeiculo->path_imagem4;
+          if (isset($foto4)){
+            ?>
+              <img class="imgVeiculo" src="<?php echo $foto4 ?>" alt="">
+            <?php 
+          } else {
+            ?>
+              <img class="imgVeiculo" src="../../_img/carro.jpg" alt="">
+            <?php
+          }
+        ?>
+      </div>
+      <div class="item">
+        <?php 
+          $foto5 = $dadosVeiculo->path_imagem5;
+          if (isset($foto5)){
+            ?>
+              <img class="imgVeiculo" src="<?php echo $foto5 ?>" alt="">
+            <?php 
+          } else {
+            ?>
+              <img class="imgVeiculo" src="../../_img/carro.jpg" alt="">
+            <?php
+          }
+        ?>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -47,56 +118,56 @@ $dados = json_decode($response->getBody());
           <div class="boxInformacoes">
             <li class="dadoAnuncio">
               <h2 class="info">Modelo:</h2>
-              <?php echo $dados->fabricante . " " . $dados->modelo?>
+              <?php echo $dadosVeiculo->fabricante . " " . $dadosVeiculo->modelo?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Ano:</h2>
-              <?php echo $dados->ano ?>
+              <?php echo $dadosVeiculo->ano ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Câmbio:</h2>
-              <?php echo $dados->cambio ?>
+              <?php echo $dadosVeiculo->cambio ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Combustivel:</h2>
-              <?php echo $dados->combustivel ?>
+              <?php echo $dadosVeiculo->combustivel ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Carroceria:</h2>
-              <?php echo $dados->carroceria ?>
+              <?php echo $dadosVeiculo->carroceria ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Condição:</h2>
-              <?php echo $dados->condicao ?>
+              <?php echo $dadosVeiculo->condicao ?>
             </li>
           </div>
           
           <div class="boxInformacoes2">
             <li class="dadoAnuncio">
               <h2 class="info">Renavam:</h2>
-                <?php echo $dados->renavam ?>
+                <?php echo $dadosVeiculo->renavam ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Cor:</h2>
-              <?php echo $dados->cor ?>
+              <?php echo $dadosVeiculo->cor ?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Status Do Veiculo:</h2>
-              <?php echo $dados->status_veiculo?>
+              <?php echo $dadosVeiculo->status_veiculo?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Id Do Veiculo:</h2>
-              <?php echo $dados->veiculo_id;?>
+              <?php echo $dadosVeiculo->veiculo_id;?>
             </li>
             <li class="dadoAnuncio">
               <h2 class="info">Id Do Dono:</h2>
-              <?php echo $dados->vendedor_id;?>
+              <?php echo $dadosVeiculo->vendedor_id;?>
             </li>
           </div>
           <div class="boxInformacoes3">
             <li class="dadoAnuncioDesc">
               <h2 class="info">Informações Adicionais:</h2>
-              <?php echo $dados->informacoes_adicionais;?>
+              <?php echo $dadosVeiculo->informacoes_adicionais;?>
             </li>
           </div>
 

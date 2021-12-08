@@ -1,6 +1,10 @@
 <?php
 require ('../../_php/usuario/verificaruser.php');
 include('../../_php/vendor/autoload.php');
+if (empty($id)){
+    header('refresh: 0.1; url=../index.php');
+    die;
+}
 use GuzzleHttp\Client;
 $client = new Client([
     'base_uri' => 'https://api-quem-da-mais.herokuapp.com',

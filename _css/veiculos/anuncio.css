@@ -176,6 +176,10 @@ li {
     margin-left: 20px;
 }
 
+.boxInformacoesVendedor .dadoAnuncio {
+    width: 310px;
+}
+
 .informacoesCarro {
     background-color: #333333f1;
     text-align: center;
@@ -302,6 +306,11 @@ h1 {
     
 }
 
-.boxInformacoesLeilao {
-    margin-left: 80px
+.informacoesCarro2 .boxInformacoesLeilao {
+    margin-left: 80px;
+    margin-top: 70px;
+}
+
+.informacoesCarro2 {
+    margin-top: -765px;
 }

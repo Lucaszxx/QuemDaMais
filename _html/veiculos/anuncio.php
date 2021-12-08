@@ -1,4 +1,5 @@
 <?php
+include('../../_php/usuario/verificaruser.php');
 include ('../usuario/indexlogado.php');
 include ('../../_php/vendor/autoload.php');
 use GuzzleHttp\Client;
@@ -10,7 +11,12 @@ $veiculo_id = $_GET['veiculo_id'];
 $leilao_id = $_GET['leilao_id'];
 $responseVeiculo = $client->request('GET', '/veiculos/veiculo/' . $veiculo_id);
 $dadosVeiculo = json_decode($responseVeiculo->getBody());
+if (isset($emailUser)) {
+  echo "<script>window.alert('Para fazer lances, será necessário que você faça login.')</script>";
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -35,19 +41,78 @@ $dadosVeiculo = json_decode($responseVeiculo->getBody());
     <!--Carrosel -->
     <div class="owl-carousel owl-theme">
       <div class="item">
-        <img class="imgVeiculo" src="<?php echo $dadosVeiculo->path_imagem ?>" alt="">
+        <?php 
+          $foto1 = $dadosVeiculo->path_imagem;
+          if (isset($foto1)){
+            ?>
+                <img class="imgVeiculo" src="<?php echo $foto1 ?>" alt="">
+            <?php 
+          } else {
+            ?>
+              <div class="item">
+                <img class="imgVeiculo" src="../../_img/carro.jpg" alt="">
+              </div>
+            <?php
+          }
+        ?>
       </div>
       <div class="item">
-        <img class="imgVeiculo" src="<?php echo $dadosVeiculo->path_imagem2 ?>" alt="">
+        <?php 
+          $foto2 = $dadosVeiculo->path_imagem2;
+          if (isset($foto2)){
+            ?>
+              <img class="imgVeiculo" src="<?php echo $foto2 ?>" alt="">
+            <?php 
+          } else {
+            ?>
+              <img class="imgVeiculo" src="../../_img/carro.jpg" alt="">
+            <?php
+          }
+        ?>
       </div>
       <div class="item">
-        <img class="imgVeiculo" src="<?php echo $dadosVeiculo->path_imagem3 ?>" alt="">
+        <?php 
+          $foto3 = $dadosVeiculo->path_imagem3;
+          if (isset($foto3)){
+            ?>
+                <img class="imgVeiculo" src="<?php echo $foto3 ?>" alt="">
+            <?php 
+          } else {
+            ?>
+              <div class="item">
+                <img style="margin-top: -25px;" class="imgVeiculo" src="../../_img/carro.jpg" alt="">
+              </div>
+            <?php
+          }
+        ?>
       </div>
       <div class="item">
-        <img class="imgVeiculo" src="<?php echo $dadosVeiculo->path_imagem4 ?>" alt="">
+        <?php 
+          $foto4 = $dadosVeiculo->path_imagem4;
+          if (isset($foto4)){
+            ?>
+              <img class="imgVeiculo" src="<?php echo $foto4 ?>" alt="">
+            <?php 
+          } else {
+            ?>
+              <img class="imgVeiculo" src="../../_img/carro.jpg" alt="">
+            <?php
+          }
+        ?>
       </div>
       <div class="item">
-        <img class="imgVeiculo" src="<?php echo $dadosVeiculo->path_imagem5 ?>" alt="">
+        <?php 
+          $foto5 = $dadosVeiculo->path_imagem5;
+          if (isset($foto5)){
+            ?>
+              <img class="imgVeiculo" src="<?php echo $foto5 ?>" alt="">
+            <?php 
+          } else {
+            ?>
+              <img class="imgVeiculo" src="../../_img/carro.jpg" alt="">
+            <?php
+          }
+        ?>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -114,28 +179,39 @@ $dadosVeiculo = json_decode($responseVeiculo->getBody());
 
                     <!-- Requisição Vendedor -->
                     <?php 
-                      $responseVendedor = $client->request('GET', 'leiloes/leilao/' . $leilao_id);
+                      $responseVendedor = $client->request('GET', 'usuarios/usuario/targin.vd@gmail.com/123');
                       $dadosVendedor = json_decode($responseVendedor->getBody());
                       //Variaveis
+                      $enderecoVendedor = $dadosVendedor->endereco;
                       $nomeVendedor = $dadosVendedor->nome;
                       $telefoneVendedor = $dadosVendedor->telefone;
-                      $enderecoVendedor = $dadosVendedor->;
+                      $linkVendedor = $dadosVendedor->link;
+                      $MembroVendedor = $dadosVendedor->criacao_conta;
+                      $emailVendedor = $dadosVendedor->email;
                     ?>
 
 
             <div class="boxInformacoesVendedor">  
-            <li class="dadoAnuncio">
-              <h2 class="info">Vendedor:</h2>
-              <?php echo $nomeVendedor?>
-            </li>
-            <li class="dadoAnuncio">
-              <h2 class="info">Telefone:</h2>
-              <?php echo $telefoneVendedor?>
-            </li>
-            <li class="dadoAnuncio">
-              <h2 class="info">Endereço:</h2>
-              <?php echo $enderecoVendedor?>
-            </li>
+              <li class="dadoAnuncio">
+                <h2 class="info">Vendedor:</h2>
+                <?php echo $nomeVendedor?>
+              </li>
+              <li class="dadoAnuncio">
+                <h2 class="info">Telefone:</h2>
+                <?php echo $telefoneVendedor?>
+              </li>
+              <li class="dadoAnuncio">
+                <h2 class="info">Endereco:</h2>
+                <?php echo $enderecoVendedor?>
+              </li>
+              <li class="dadoAnuncio">
+                <h2 class="info">Link:</h2>
+                <?php echo $linkVendedor?>
+              </li>
+              <li class="dadoAnuncio">
+                <h2 class="info">Membro Desde:</h2>
+                <?php echo $MembroVendedor?>
+              </li>
             </div>
           </div>
   </div>
@@ -178,8 +254,8 @@ if (empty($lance_final))
             <li class="dadoAnuncio">
               <h2 class="info">Dar um lance:</h2>
               <form action="../../_php/leilao/alterarLeilao.php" method="post">
-              <input type="text" name="valor">
-              <button type="submit">Dar lance</button>
+                <input type="text" name="valor">
+                <button type="submit">Dar lance</button>
               </form>
             </li>
       </div>
@@ -194,6 +270,9 @@ if (empty($lance_final))
         loop: true,
         margin:10,
         dots: false,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
       });
     })
   </script>
