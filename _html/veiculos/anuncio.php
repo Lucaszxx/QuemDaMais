@@ -251,14 +251,9 @@ if (empty($lance_final))
               <h2 class="info">Expira em:</h2>
               <?php echo str_replace('-', '/', $data_final) ?>
             </li>
-            <li class="dadoAnuncio">
-              <h2 class="info">Dar um lance:</h2>
-              <form action="../../_php/leilao/alterarLeilao.php" method="post">
-                <input type="text" name="valor">
-                <button type="submit">Dar lance</button>
-              </form>
-            </li>
-      </div>
+            <h2 style="margin-top: 30px; margin-left: -10px;" class="info">Para participar é preciso baixar o nosso app.</h2>
+            <img style="width: 65px; margin-top:70px; margin-left:95px;" src="../../_img/logoPlayStore.png" alt="">
+        </div>
       
     </ul>
   </div>

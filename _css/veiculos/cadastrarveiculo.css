@@ -1,5 +1,5 @@
 body {
-    background-color: #000000ea;
+    background-color: #853a1f;
 }
 
 /* BARRA DE NAVEGAÇÃO DROPDOWN*/
@@ -164,7 +164,7 @@ body {
 
 #barrasepara {
     position: absolute;
-    border: solid rgba(105, 105, 105, 0.185) 1px;
+    border: solid rgba(0, 0, 0, 0.747) 1px;
     border-radius: 2px;
     width: 1368px;
     margin-left: -10px;

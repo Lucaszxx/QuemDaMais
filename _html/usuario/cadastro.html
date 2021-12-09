@@ -8,12 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../../_css/usuario/cadastro.css" media="screen" />
   <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=PT+Sans+Narrow&family=Poppins:ital,wght@1,200&display=swap" rel="stylesheet">
-  <title>Document</title>
+  <title>Cadastro</title>
 
-  <!-- SCRIPT VALIDAR CPF-->
-  <script>
-    
-  </script>
 
   <!--SCRIPT VALIDAR EMAIL E SENHA-->
   <script>
@@ -38,14 +34,8 @@
 </head>
 
 <body>
-  <div class="box">
-    <div class="links"><a class="tlink" href="#">Login</a></div>
-    <div class="links"><a class="tlink" href="#">Cadastre-se</a></div>
-    <div class="links"><a class="tlink" href="#">Leilões já iniciados</a></div>
-    <div class="links"><a class="tlink" href="#">Veículos por categoria</a></div>
-  </div>
   <div>
-    <img id="logo" src="../../_img/logoquemdamais.png" alt="">
+    <a href="../../_html/index.php"><img id="logo" src="../../_img/logoquemdamais.png" alt=""></a>
   </div>
 
   <div class="box2">
@@ -77,7 +67,7 @@
       <ul class="itens2">
         <li class="item">
           <h2>CPF/CNPJ:</h2>
-          <input type="text" class="inputs" name="cpf_cad" placeholder="00000000000" required>
+          <input  type="text" class="inputs" name="cpf_cad" placeholder="00000000000" required>
         </li>
         <li class="item">
           <h2>Telefone:</h2>
@@ -96,7 +86,7 @@
           <input style="height: 35px; margin-top: -10px;" type="text" class="inputs" name="site_cad">
         </li>
       </ul>
-      <input onclick="return validar()" id="botao" type="submit" value="CADASTRAR">
+      <input onclick="return validar(); return VerificaCPF()" id="botao" type="submit" value="CADASTRAR">
       </form>
   </div>
   </div>

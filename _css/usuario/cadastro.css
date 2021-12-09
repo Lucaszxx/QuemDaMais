@@ -2,7 +2,7 @@
 /* BARRA DE NAVEGAÇÃO */
 
 body {
-  background-color:rgb(61, 61, 61);
+  background-color: #AF4A24;
 }
 
 /* Logo da equipe */
@@ -10,10 +10,15 @@ body {
     position: absolute;
     width: 100px;
     height: 50px;
-    margin-top: -55px;
-    margin-left: 30px;
+    margin-top: -48px;
+    margin-left: 610px;
   }
   
+  textarea:focus, input:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
   /* FLEXBOX */
   .box {
     display: flex;
@@ -47,7 +52,7 @@ body {
   }
 
   .box2{
-    background-color: rgba(48, 48, 48, 0.904);
+    background-color: rgba(36, 36, 36, 0.904);
     height: 600px;
     margin-top: 50px;
     list-style: none;
